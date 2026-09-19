@@ -1,0 +1,261 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* ── PALETTE ───────────────────────────────────────────────────
+       Background: Linear grey from 3rd G in image  #282828 → #404040
+       Primary   : Warm amber-orange lamp glow       #ff8c00
+       Secondary : Neon/electric green LED strip     #00d26a
+    ─────────────────────────────────────────────────────────────── */
+    --primary:          #ff8c00;
+    --primary-light:    #ffab40;
+    --primary-dark:     #cc6f00;
+    --secondary:        #00d26a;
+    --secondary-light:  #00ff88;
+    --secondary-dark:   #00a352;
+
+    /* Grey system — exact gradient grey from 3rd G stone letter */
+    --grey-deepest:     #1e1e1e;
+    --grey-deep:        #242424;
+    --grey-base:        #2c2c2c;
+    --grey-mid:         #383838;
+    --grey-elevated:    #424242;
+    --grey-surface:     #4e4e4e;
+
+    --dark-bg:          #0d0e11;
+    --bg-odd:           #0d0e11;
+    --bg-even:          #090a0d;
+    --text-primary:     #f0ede8;
+    --text-muted:       #a0a0a0;
+  }
+
+  * {
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #0d0e11;
+    color: var(--text-primary);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6,
+  p, span, a, button, input, textarea, select,
+  .font-serif-luxury, .font-montserrat, .font-roboto, .font-sans {
+    font-family: 'Montserrat', sans-serif !important;
+  }
+}
+
+/* ── THEME UTILITY CLASSES ─────────────────────────────────────── */
+.text-primary-theme   { color: var(--primary); }
+.bg-primary-theme     { background-color: var(--primary); }
+.border-primary-theme { border-color: var(--primary); }
+
+.text-secondary-theme   { color: var(--secondary); }
+.bg-secondary-theme     { background-color: var(--secondary); }
+.border-secondary-theme { border-color: var(--secondary); }
+
+/* ── GLOW UTILITIES ────────────────────────────────────────────── */
+.glow-primary {
+  box-shadow: 0 0 24px rgba(255, 140, 0, 0.55);
+}
+.glow-secondary {
+  box-shadow: 0 0 24px rgba(0, 210, 106, 0.55);
+}
+.glow-primary-lg {
+  box-shadow: 0 0 60px rgba(255, 140, 0, 0.35), 0 0 120px rgba(255, 140, 0, 0.15);
+}
+.glow-secondary-lg {
+  box-shadow: 0 0 60px rgba(0, 210, 106, 0.35), 0 0 120px rgba(0, 210, 106, 0.15);
+}
+
+/* ── LED STRIP AMBIENT GLOW ────────────────────────────────────── */
+.led-green-glow {
+  box-shadow:
+    0 0 8px  rgba(0, 255, 136, 0.9),
+    0 0 20px rgba(0, 210, 106, 0.6),
+    0 0 50px rgba(0, 210, 106, 0.3);
+}
+.amber-lamp-glow {
+  box-shadow:
+    0 0 8px  rgba(255, 140, 0, 0.9),
+    0 0 20px rgba(255, 140, 0, 0.6),
+    0 0 50px rgba(255, 140, 0, 0.3);
+}
+
+/* ── 3D PERSPECTIVE ────────────────────────────────────────────── */
+.perspective-container {
+  perspective: 1500px;
+  perspective-origin: 50% 50%;
+  transform-style: preserve-3d;
+}
+.fold-layer {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+
+/* ── GLASSMORPHISM (grey-tinted) ───────────────────────────────── */
+.glass-pill {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+.glass-pill-dark {
+  background: rgba(30, 30, 30, 0.70);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+}
+
+.glass-card {
+  background: rgba(40, 40, 40, 0.80);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+/* ── ODD & EVEN SECTION UTILITIES ──────────────────────────────── */
+.section-odd {
+  background-color: #0d0e11;
+}
+
+.section-even {
+  background-color: #090a0d;
+}
+
+.section-grey {
+  background-color: #0d0e11;
+}
+
+.section-grey-alt {
+  background-color: #090a0d;
+}
+
+/* ── PRIMARY CTA BUTTON (orange gradient) ──────────────────────── */
+.btn-gold-gradient {
+  background: linear-gradient(135deg, #ff8c00 0%, #ffab40 100%);
+  color: #0a0500;
+  font-weight: 800;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 24px rgba(255, 140, 0, 0.50);
+}
+.btn-gold-gradient:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 36px rgba(255, 140, 0, 0.75);
+  background: linear-gradient(135deg, #ff9c14 0%, #ffbe5c 100%);
+}
+.btn-gold-gradient:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ── SECONDARY CTA BUTTON (green gradient) ─────────────────────── */
+.btn-green-gradient {
+  background: linear-gradient(135deg, #00d26a 0%, #00ff88 100%);
+  color: #020e06;
+  font-weight: 800;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 24px rgba(0, 210, 106, 0.50);
+}
+.btn-green-gradient:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 36px rgba(0, 210, 106, 0.75);
+}
+
+/* ── UNDERLINE BRUSH (disabled) ────────────────────────────────── */
+.underline-brush { display: inline-block; }
+.underline-brush::after { display: none !important; }
+
+/* ── CUSTOM SCROLLBAR ──────────────────────────────────────────── */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #1e1e1e; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #ff8c00, #00d26a);
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(255, 140, 0, 0.6);
+}
+
+/* ── MATRIX & GLITCH TEXT ANIMATION ────────────────────────────── */
+.matrix-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.matrix-text {
+  color: #ff5722;
+  position: relative;
+  text-shadow: 0 0 10px rgba(255, 87, 34, 0.8), 0 0 20px rgba(255, 87, 34, 0.6), 0 0 30px rgba(255, 87, 34, 0.4);
+  z-index: 2;
+}
+
+.matrix-text-green {
+  color: #0f0;
+  text-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0;
+}
+
+.matrix-text::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: glitch 2s infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  transform: translate(-2px, -2px);
+  color: inherit;
+  text-shadow: 0 0 5px currentColor, 0 0 15px currentColor;
+}
+
+.rain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 87, 34, 0.08) 0,
+    rgba(255, 87, 34, 0.15) 2px,
+    transparent 4px
+  );
+  animation: rain 10s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Animation for the rain effect */
+@keyframes rain {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* Glitch effect for the text */
+@keyframes glitch {
+  0%, 100% {
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    transform: translate(0);
+  }
+  33% {
+    clip-path: polygon(0 0, 100% 0, 100% 15%, 0 15%);
+    transform: translate(-5px, -5px);
+  }
+  66% {
+    clip-path: polygon(0 85%, 100% 85%, 100% 100%, 0 100%);
+    transform: translate(5px, 5px);
+  }
+}
