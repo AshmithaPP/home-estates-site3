@@ -18,17 +18,19 @@ export const Header = ({ onOpenTour, onOpenApply }) => {
       <header className="absolute top-0 left-0 right-0 z-40 px-3 sm:px-12 py-3 sm:py-6 transition-all duration-300">
         <div className="max-w-[1800px] mx-auto flex items-center justify-between gap-2 relative">
 
-          {/* Logo on Left (Clean normal letters: Ajay Homes & Estates) */}
+          {/* Logo on Left (AJAY BUILDERS & PROPERTY DEVELOPERS logo image) */}
           <motion.a
             href="#"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex items-center gap-1.5 group shrink-0"
+            className="flex items-center gap-1.5 group shrink-0 ml-4 sm:ml-8 md:ml-12"
           >
-            <span className="font-sans font-black text-sm xs:text-base sm:text-2xl tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#ff8c00] via-[#ffab40] to-[#ff6b00] drop-shadow-sm whitespace-nowrap">
-              Ajay Homes & Estates
-            </span>
+            <img
+              src="/images/logo/logo.png"
+              alt="Ajay Builders & Property Developers"
+              className="h-14 sm:h-20 md:h-24 w-auto object-contain group-hover:scale-105 transition-transform"
+            />
           </motion.a>
 
           {/* Center Inline Navigation Bar (Dead Center) */}
@@ -96,9 +98,11 @@ export const Header = ({ onOpenTour, onOpenApply }) => {
                 
                 {/* Header row inside menu */}
                 <div className="flex items-center justify-between pb-2 border-b border-white/10">
-                  <span className="font-sans font-black text-sm tracking-tight text-[#ff8c00]">
-                    Ajay Homes & Estates
-                  </span>
+                  <img
+                    src="/images/logo/logo.png"
+                    alt="Ajay Builders & Property Developers"
+                    className="h-8 sm:h-10 w-auto object-contain"
+                  />
                   <button
                     onClick={() => setIsMenuOpen(false)}
                     className="p-1 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"

@@ -16,16 +16,13 @@ export const Navbar = ({ onOpenTourModal, onOpenApplyModal }) => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="group flex items-center gap-2"
+            className="group flex items-center gap-2 ml-4 sm:ml-8 md:ml-12"
           >
-            <div className="flex flex-col">
-              <span className="font-montserrat font-black text-2xl tracking-tighter text-white group-hover:text-[#ff8c00] transition-colors">
-                21OAKS
-              </span>
-              <span className="text-[10px] tracking-[0.25em] uppercase text-[#00d26a]/80 font-medium">
-                Homes & Estates
-              </span>
-            </div>
+            <img
+              src="/images/logo/logo.png"
+              alt="Ajay Builders & Property Developers"
+              className="h-14 sm:h-20 md:h-24 w-auto object-contain group-hover:scale-105 transition-transform"
+            />
           </motion.a>
 
           {/* Center Inline Navigation Bar (Dead Center) */}

@@ -59,24 +59,27 @@ export const ScrollGallery = () => {
   const outerCardStyle = "w-32 sm:w-44 md:w-52 h-24 sm:h-32 md:h-38 aspect-[4/3] rounded-2xl overflow-hidden shadow-xl border-2 border-[#ff8c00]/60 bg-[#2c2c2c] shadow-black/30";
 
   return (
-    <div id="about" ref={containerRef} className="relative h-[220vh] text-[#f0ede8]" style={{ background: '#121212' }}>
+    <div
+      id="about"
+      ref={containerRef}
+      className="relative h-[220vh] text-[#f0ede8]"
+      style={{
+        background: 'linear-gradient(140deg, #11100f 0%, #1e1814 30%, #2b2017 55%, #1c1612 80%, #100f0e 100%)',
+      }}
+    >
       {/* Sticky Full-Viewport Stage */}
       <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-between overflow-hidden px-4 py-8">
 
-        {/* Full Width & Height Autoplay Background Video */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none select-none opacity-85"
-        >
-          <source src="/video-compressed.mp4" type="video/mp4" />
-        </video>
-
-        {/* Ambient Dark Overlay for video visibility & card contrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/75 z-0 pointer-events-none" />
+        {/* Ambient Orange-Shaded Grey Dim Light & Glow Overlay */}
+        <div
+          className="absolute inset-0 pointer-events-none z-0"
+          style={{
+            background: `
+              radial-gradient(circle at 50% 50%, rgba(255, 140, 0, 0.22) 0%, rgba(255, 110, 0, 0.08) 40%, transparent 75%),
+              linear-gradient(180deg, rgba(12, 11, 10, 0.7) 0%, rgba(26, 20, 15, 0.15) 50%, rgba(12, 11, 10, 0.8) 100%)
+            `,
+          }}
+        />
 
         {/* Headline Header Block */}
         <motion.div
