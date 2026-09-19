@@ -24,9 +24,9 @@ const testimonials = [
   {
     id: 3,
     quote:
-      "Partnering with Ajay Homes for property joint venture was the best decision. Outstanding market payout, legal clarity, and world-class architectural finish across every single square foot.",
+      "Partnering with Ajay Homes for property land partnership was the best decision. Outstanding market payout, legal clarity, and world-class architectural finish across every single square foot.",
     author: "KAVITHA RAMAN",
-    role: "Joint Venture Partner · Anna Nagar",
+    role: "Land Partnership Partner · Anna Nagar",
     avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80",
     rating: 5,
   },

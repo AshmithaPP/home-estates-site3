@@ -11,7 +11,7 @@ import ApplyModal from '../Modals/ApplyModal';
 /**
  * Hero Component
  * Logo: Ajay Homes & Estates
- * CTA: Joint Venture
+ * CTA: Land Partnership
  * Rapid auto-advance: 2.0 seconds per slide for frequent background folding transitions.
  */
 export const Hero = () => {

@@ -17,9 +17,9 @@ const faqItems = [
   },
   {
     id: '3',
-    question: 'How does Joint Venture property promotion work with Ajay Homes?',
+    question: 'How does Land Partnership property promotion work with Ajay Homes?',
     answer:
-      'If you own land in or around Chennai, we partner with you via Joint Venture to construct luxury flats or villas. We offer the best market share/payout, complete legal transparency, and end-to-end project execution.'
+      'If you own land in or around Chennai, we partner with you via Land Partnership to construct luxury flats or villas. We offer the best market share/payout, complete legal transparency, and end-to-end project execution.'
   },
   {
     id: '4',

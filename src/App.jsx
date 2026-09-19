@@ -30,14 +30,13 @@ function App() {
         onOpenApply={() => setIsApplyModalOpen(true)}
       />
 
-      {/* 5. Customer Stories Video Section */}
+      {/* 5. About Home & Estates Curated Portfolio Section */}
+      <ContactSection
+        onOpenApply={() => setIsApplyModalOpen(true)}
+      />
+
+      {/* 6. Customer Stories / Reviews Video Section */}
       <CustomerStoriesSection />
-
-      {/* 6. Pre-Footer Banner: Joint Venture Property Promotion */}
-      {/* <FindYourPlaceSection /> */}
-
-      {/* 7. Contact Form Section (Blog & Insights) */}
-      <ContactSection />
 
       {/* 8. Frequently Asked Questions Section */}
       <FAQSection

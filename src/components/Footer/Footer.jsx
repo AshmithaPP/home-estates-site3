@@ -20,7 +20,7 @@ const Footer = ({ onOpenTourModal, onOpenApply }) => {
               />
             </a>
             <p className="text-sm text-white/80 max-w-sm leading-relaxed font-normal">
-              One of the fastest growing construction firms in Chennai, delivering quality residential flats, villas, and joint venture promotions with custom solutions for thousands of families.
+              One of the fastest growing construction firms in Chennai, delivering quality residential flats, villas, and land partnership promotions with custom solutions for thousands of families.
             </p>
             <div className="p-3.5 rounded-xl bg-white/5 border border-[#00d26a]/30 max-w-sm shadow-sm backdrop-blur-md">
               <span className="text-[11px] font-extrabold text-[#00d26a] uppercase tracking-wider block">Our Philosophy</span>
@@ -64,7 +64,7 @@ const Footer = ({ onOpenTourModal, onOpenApply }) => {
               Services
             </h4>
             <ul className="space-y-2.5 text-sm text-white/75 font-medium">
-              <li><button onClick={onOpenApply} className="hover:text-[#2d6a4f] transition-colors text-left cursor-pointer">Joint Venture</button></li>
+              <li><button onClick={onOpenApply} className="hover:text-[#2d6a4f] transition-colors text-left cursor-pointer">Land Partnership</button></li>
               <li><button onClick={onOpenTourModal} className="hover:text-[#2d6a4f] transition-colors text-left cursor-pointer">Schedule a Tour</button></li>
               <li><button onClick={onOpenApply} className="hover:text-[#2d6a4f] transition-colors text-left cursor-pointer">Digital Application</button></li>
               <li><a href="#" className="hover:text-[#2d6a4f] transition-colors">Architectural Customization</a></li>
