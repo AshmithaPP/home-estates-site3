@@ -36,18 +36,14 @@ export const BalancedLivingSection = ({ onOpenApply }) => {
           {floorplansData.map((plan, idx) => (
             <motion.div
               key={plan.id}
-              initial={{ x: 140, opacity: 0, rotate: 0 }}
-              whileInView={{
-                x: [140, -12, 8, -4, 0],
-                opacity: 1,
-                rotate: 0,
-                transition: {
-                  duration: 1.2,
-                  delay: idx * 0.15,
-                  ease: [0.16, 1, 0.3, 1],
-                },
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-30px' }}
+              transition={{
+                duration: 0.5,
+                delay: idx * 0.1,
+                ease: 'easeOut',
               }}
-              viewport={{ once: true, margin: '-40px' }}
               whileHover={{
                 y: -8,
                 scale: 1.02,
