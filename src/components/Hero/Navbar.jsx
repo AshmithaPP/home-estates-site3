@@ -16,12 +16,12 @@ export const Navbar = ({ onOpenTourModal, onOpenApplyModal }) => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="group flex items-center gap-2 ml-4 sm:ml-8 md:ml-12"
+            className="group flex items-center gap-2 ml-2 sm:ml-4 md:ml-6"
           >
             <img
-              src="/images/logo/logo.png"
+              src="/images/logo/AJAY (1).png"
               alt="Ajay Builders & Property Developers"
-              className="h-14 sm:h-20 md:h-24 w-auto object-contain group-hover:scale-105 transition-transform"
+              className="h-8 sm:h-11 md:h-13 w-auto object-contain group-hover:scale-105 transition-transform"
             />
           </motion.a>
 
