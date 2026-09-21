@@ -16,7 +16,7 @@ const Footer = ({ onOpenTourModal, onOpenApply }) => {
               <img
                 src="/images/logo/logo-ajay-homes.png"
                 alt="Ajay Builders & Property Developers"
-                className="h-12 sm:h-14 md:h-16 lg:h-18 w-auto object-contain hover:opacity-95 transition-opacity -my-2"
+                className="h-10 sm:h-11 md:h-12 w-auto object-contain hover:opacity-95 transition-opacity -my-1"
               />
             </a>
             <p className="text-sm text-white/80 max-w-sm leading-relaxed font-normal">
