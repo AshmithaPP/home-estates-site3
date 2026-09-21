@@ -100,9 +100,9 @@ export const ScrollGallery = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-center select-none mb-6 px-2"
           >
-            <h2 className="text-2xl font-serif-luxury font-normal text-[#f0ede8] tracking-tight leading-snug">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-normal text-[#f0ede8] tracking-tight leading-snug font-sans">
               Everything homes & estates living{' '}
-              <span className="font-serif-luxury text-[#ff8c00] inline-block">
+              <span className="text-[#ff8c00] inline-block font-sans">
                 should be
               </span>
             </h2>
@@ -115,7 +115,7 @@ export const ScrollGallery = () => {
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.65, delay: 0.1, ease: [0.25, 0.8, 0.25, 1] }}
             whileTap={{ scale: 0.97 }}
-            className="w-full max-w-[280px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-4 border-[#00d26a] bg-[#2c2c2c] mb-4 shadow-black/40 cursor-pointer"
+            className="w-full max-w-[280px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-4 border-[var(--primary)] bg-[#2c2c2c] mb-4 shadow-black/40 cursor-pointer"
           >
             <img
               src="/images/residence-images/suresh-residence-view/img66.jpg"
@@ -182,9 +182,9 @@ export const ScrollGallery = () => {
             style={{ y: textY, opacity: textOpacity }}
             className="z-30 text-center max-w-xl pt-1 sm:pt-6 select-none px-2 relative"
           >
-            <h2 className="text-lg sm:text-4xl md:text-5xl font-serif-luxury font-normal text-[#f0ede8] tracking-tight leading-snug">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-normal text-[#f0ede8] tracking-tight leading-snug font-sans">
               Everything homes & estates living{' '}
-              <span className="font-serif-luxury text-[#ff8c00] inline-block">
+              <span className="text-[#ff8c00] inline-block font-sans">
                 should be
               </span>
             </h2>
@@ -196,7 +196,7 @@ export const ScrollGallery = () => {
             {/* 1. Center Focal Card */}
             <motion.div
               style={{ scale: centerScale }}
-              className="z-20 w-44 sm:w-60 md:w-72 aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-4 border-[#00d26a] bg-[#2c2c2c] shadow-black/40"
+              className="z-20 w-44 sm:w-60 md:w-72 aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-4 border-[var(--primary)] bg-[#2c2c2c] shadow-black/40"
             >
               <img
                 src="/images/residence-images/suresh-residence-view/img66.jpg"

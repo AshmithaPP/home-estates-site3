@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowDownRight, Calendar, Phone, MapPin, Sparkles, Home, Shield, Compass } from 'lucide-react';
+import { Menu, X, ArrowDownRight, Calendar, Phone, MapPin, Sparkles, ArrowUpRight } from 'lucide-react';
+import PrimaryButton from '../Common/PrimaryButton';
 
 export const Navbar = ({ onOpenTourModal, onOpenApplyModal }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,9 +20,9 @@ export const Navbar = ({ onOpenTourModal, onOpenApplyModal }) => {
             className="group flex items-center gap-2 ml-2 sm:ml-4 md:ml-6"
           >
             <img
-              src="/images/logo/AJAY (1).png"
+              src="/images/logo/new-logo-updated.png"
               alt="Ajay Builders & Property Developers"
-              className="h-8 sm:h-11 md:h-13 w-auto object-contain group-hover:scale-105 transition-transform"
+              className="h-20 sm:h-28 md:h-32 lg:h-36 w-auto object-contain group-hover:scale-105 transition-transform -my-5 sm:-my-7"
             />
           </motion.a>
 
@@ -48,33 +49,33 @@ export const Navbar = ({ onOpenTourModal, onOpenApplyModal }) => {
             ))}
           </motion.nav>
 
-          {/* Right Controls (Screenshot 1: Schedule a Tour & Apply Now) */}
+          {/* Right Controls */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex items-center gap-3"
           >
-            {/* Schedule a Tour Button with Green Status Dot */}
-            <button
+            {/* Schedule a Tour Button */}
+            <PrimaryButton
+              variant="glass"
+              size="sm"
               onClick={onOpenTourModal}
-              className="hidden sm:flex glass-pill hover:bg-white/20 px-4 py-2 rounded-full text-xs sm:text-sm font-medium text-white transition-all items-center gap-2 cursor-pointer shadow-md hover:scale-105 active:scale-95"
+              icon={Calendar}
+              className="hidden sm:inline-flex"
             >
-              <span className="w-2 h-2 rounded-full bg-[#00d26a] animate-pulse inline-block shadow-[0_0_8px_#00d26a]" />
-              <Calendar className="w-3.5 h-3.5 text-[#ff8c00]" />
-              <span>Schedule a Tour</span>
-            </button>
+              Schedule a Tour
+            </PrimaryButton>
 
-            {/* Apply Now Button with Arrow (Gradient requested in prompt) */}
-            <button
+            {/* Apply Now Button */}
+            <PrimaryButton
+              variant="primary"
+              size="sm"
               onClick={onOpenApplyModal}
-              className="btn-gold-gradient px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold flex items-center gap-2 cursor-pointer group"
+              icon={ArrowDownRight}
             >
-              <span>Apply Now</span>
-              <div className="w-5 h-5 rounded-full bg-black/10 flex items-center justify-center group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform">
-                <ArrowDownRight className="w-3.5 h-3.5 text-black" />
-              </div>
-            </button>
+              Apply Now
+            </PrimaryButton>
 
             {/* Mobile Hamburger Toggle */}
             <button
@@ -152,18 +153,22 @@ export const Navbar = ({ onOpenTourModal, onOpenApplyModal }) => {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                  <button
+                  <PrimaryButton
+                    variant="glass"
                     onClick={() => { setIsMenuOpen(false); onOpenTourModal(); }}
-                    className="flex-1 glass-pill py-3 rounded-xl text-center font-medium text-sm hover:bg-white/20 transition-all"
+                    icon={Calendar}
+                    className="flex-1"
                   >
                     Book In-Person Tour
-                  </button>
-                  <button
+                  </PrimaryButton>
+                  <PrimaryButton
+                    variant="primary"
                     onClick={() => { setIsMenuOpen(false); onOpenApplyModal(); }}
-                    className="flex-1 btn-gold-gradient py-3 rounded-xl text-center font-bold text-sm"
+                    icon={ArrowDownRight}
+                    className="flex-1"
                   >
                     Apply Online
-                  </button>
+                  </PrimaryButton>
                 </div>
               </div>
             </div>

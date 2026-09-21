@@ -41,30 +41,28 @@ const features = [
   },
 ];
 
-/**
- * EverydayLivingSection — 3rd Section
- * Exact pixel-perfect replica of reference UI:
- * Left: Dynamically animated showcase image card with slow Ken-Burns zoom & smooth cross-fade slideshow + "100% TAILORED ARCHITECTURE" stat box
- * Right: Accent line eyebrow "WHY HOME & ESTATES", serif headline "Designed With Purpose. Built With Care.", 3 numbered feature cards (01, 02, 03)
- */
 export const EverydayLivingSection = () => {
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
 
-  // Auto-cycle showcase images with slow animated cross-fade
+  // Fast auto-cycle showcase images for high interactivity (2.2 seconds)
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImgIndex((prev) => (prev + 1) % showcaseImages.length);
-    }, 5000);
+    }, 2200);
     return () => clearInterval(timer);
   }, []);
+
+  const handleNextImage = () => {
+    setCurrentImgIndex((prev) => (prev + 1) % showcaseImages.length);
+  };
 
   return (
     <section
       id="interior"
-      className="relative w-full py-20 lg:py-28 px-6 sm:px-10 lg:px-16 text-[#f0ede8] overflow-hidden"
+      className="relative w-full lg:min-h-screen lg:flex lg:items-center lg:justify-center py-12 lg:py-0 px-4 sm:px-10 lg:px-16 text-[#f0ede8] overflow-hidden"
       style={{ background: '#0d0e11' }}
     >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center relative z-10 w-full">
 
         {/* ── LEFT COLUMN: DYNAMIC ANIMATED IMAGE CARD & 100% STAT BLOCK ───────── */}
         <motion.div
@@ -74,48 +72,62 @@ export const EverydayLivingSection = () => {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="lg:col-span-5 flex flex-col w-full"
         >
-          {/* Main Dynamically Animated Image Card with Slow Ken Burns Zoom & Cross-fade */}
-          <div className="relative w-full rounded-sm overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.6)] aspect-[4/4.5] sm:aspect-[4/4.2] group bg-[#0c0d10]">
-            <AnimatePresence mode="wait">
+          {/* Main Showcase Image Container — Compact aspect ratio to fit viewport */}
+          <div
+            onClick={handleNextImage}
+            className="relative w-full rounded-sm overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.6)] aspect-[4/3.2] sm:aspect-[4/3.2] lg:aspect-[4/3.1] group bg-[#0c0d10] cursor-pointer hover:border-[#ff8c00]/40 transition-all duration-300"
+          >
+            {/* Base static background image to prevent any black gap during transitions */}
+            <img
+              src={showcaseImages[currentImgIndex].url}
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+
+            {/* Smooth overlapping crossfade */}
+            <AnimatePresence>
               <motion.img
                 key={currentImgIndex}
                 src={showcaseImages[currentImgIndex].url}
                 alt={showcaseImages[currentImgIndex].location}
                 initial={{ opacity: 0, scale: 1.0 }}
-                animate={{ opacity: 1, scale: 1.12 }}
+                animate={{ opacity: 1, scale: 1.06 }}
                 exit={{ opacity: 0 }}
                 transition={{
-                  opacity: { duration: 1.2, ease: 'easeInOut' },
-                  scale: { duration: 5.5, ease: 'linear' },
+                  opacity: { duration: 0.45, ease: 'easeInOut' },
+                  scale: { duration: 2.2, ease: 'easeOut' },
                 }}
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover z-10"
               />
             </AnimatePresence>
 
             {/* Dark Gradient Overlay for high-end atmospheric tone */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none z-10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none z-20" />
 
             {/* Location Tag Overlay Top-Left */}
-            <div className="absolute top-4 left-4 z-20">
+            <div className="absolute top-4 left-4 z-30">
               <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-[10px] font-bold text-white/90 uppercase tracking-wider flex items-center gap-1.5 shadow-md">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#ff5722] animate-pulse" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#ff8c00] animate-pulse" />
                 {showcaseImages[currentImgIndex].location}
               </span>
             </div>
 
             {/* Interactive Progress Indicators Bottom-Right */}
-            <div className="absolute bottom-4 right-4 z-20 flex items-center gap-1.5 bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10">
+            <div className="absolute bottom-4 right-4 z-30 flex items-center gap-1.5 bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10">
               {showcaseImages.map((_, idx) => (
                 <button
                   key={idx}
-                  onClick={() => setCurrentImgIndex(idx)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setCurrentImgIndex(idx);
+                  }}
                   className="cursor-pointer p-0.5"
                   aria-label={`Go to slide ${idx + 1}`}
                 >
                   <motion.div
                     animate={{
                       width: currentImgIndex === idx ? 16 : 6,
-                      backgroundColor: currentImgIndex === idx ? '#ff5722' : 'rgba(255,255,255,0.3)',
+                      backgroundColor: currentImgIndex === idx ? '#ff8c00' : 'rgba(255,255,255,0.3)',
                     }}
                     transition={{ duration: 0.3 }}
                     className="h-[3px] rounded-full"
@@ -131,10 +143,10 @@ export const EverydayLivingSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="w-full bg-[#13151c] p-6 sm:p-7 border-t-2 border-t-[#ff5722] border border-white/10 mt-4 rounded-sm shadow-xl space-y-1.5"
+            className="w-full bg-[#13151c] p-4 sm:p-5 border-t-2 border-t-[#ff8c00] border border-white/10 mt-3 rounded-sm shadow-xl space-y-1"
           >
             <span
-              className="block text-3xl sm:text-4xl font-black text-[#ff5722] tracking-tight leading-none"
+              className="block text-2xl sm:text-3xl font-black text-[#ff8c00] tracking-tight leading-none"
               style={{ fontFamily: 'Montserrat, sans-serif' }}
             >
               100%
@@ -149,7 +161,7 @@ export const EverydayLivingSection = () => {
         </motion.div>
 
         {/* ── RIGHT COLUMN: HEADER & 3 NUMBERED FEATURE CARDS ──────────────── */}
-        <div className="lg:col-span-7 flex flex-col space-y-8 justify-center">
+        <div className="lg:col-span-7 flex flex-col space-y-5 lg:space-y-6 justify-center">
 
           {/* Header Block */}
           <motion.div
@@ -157,13 +169,13 @@ export const EverydayLivingSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="space-y-4 text-left select-none"
+            className="space-y-3 text-left select-none"
           >
             {/* Top Eyebrow with Left Accent Line: — WHY HOME & ESTATES */}
             <div className="flex items-center gap-3">
-              <span className="w-8 h-[2px] bg-[#ff5722]" />
+              <span className="w-8 h-[2px] bg-[#ff8c00]" />
               <span
-                className="text-xs font-bold uppercase tracking-[0.3em] text-[#ff5722]"
+                className="text-xs font-bold uppercase tracking-[0.3em] text-[#ff8c00]"
                 style={{ fontFamily: 'Montserrat, sans-serif' }}
               >
                 WHY HOME &amp; ESTATES
@@ -172,8 +184,8 @@ export const EverydayLivingSection = () => {
 
             {/* Main Headline: Designed With Purpose. Built With Care. */}
             <h2
-              className="text-3xl sm:text-4xl lg:text-5xl font-serif text-white tracking-tight leading-[1.15]"
-              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+              className="text-2xl sm:text-4xl lg:text-5xl font-normal text-white tracking-tight leading-snug font-sans"
+              style={{ fontFamily: 'Montserrat, sans-serif' }}
             >
               Designed With Purpose.<br />
               Built With Care.
@@ -181,40 +193,37 @@ export const EverydayLivingSection = () => {
           </motion.div>
 
           {/* 3 Numbered Feature Cards */}
-          <div className="space-y-4 w-full">
+          <div className="space-y-3 w-full">
             {features.map((item, idx) => (
               <motion.div
                 key={item.number}
-                initial={{ opacity: 0, x: 40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: '-30px' }}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{
-                  duration: 0.6,
-                  delay: idx * 0.15,
-                  ease: [0.16, 1, 0.3, 1],
+                  duration: 0.3,
+                  delay: idx * 0.05,
+                  ease: 'easeOut',
                 }}
                 whileHover={{
-                  x: 8,
-                  borderColor: 'rgba(255, 87, 34, 0.4)',
-                  backgroundColor: 'rgba(255, 87, 34, 0.04)',
+                  x: 6,
+                  borderColor: 'rgba(255, 140, 0, 0.4)',
+                  backgroundColor: 'rgba(255, 140, 0, 0.04)',
                 }}
-                className="p-5 sm:p-6 bg-[#13151c] rounded-md border border-white/10 shadow-lg transition-all duration-300 flex items-start gap-5 cursor-pointer group"
+                className="p-4 sm:p-4.5 bg-[#13151c] rounded-md border border-white/10 shadow-lg transition-all duration-300 flex items-start gap-4 cursor-pointer group"
               >
-                {/* Number Badge Box - Constantly Highlighted */}
-                <div className="w-10 h-10 rounded bg-[#ff5722] text-black shadow-[0_0_16px_rgba(255,87,34,0.45)] flex items-center justify-center text-xs font-mono font-black flex-shrink-0 group-hover:scale-110 transition-all duration-300">
+                {/* Translucent Circular Badge Indicator */}
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/5 border border-[#ff8c00]/40 text-[#ff8c00] group-hover:bg-[#ff8c00] group-hover:text-black flex items-center justify-center text-xs sm:text-sm font-bold font-sans shadow-sm flex-shrink-0 transition-all duration-300 mt-0.5">
                   {item.number}
                 </div>
 
                 {/* Card Title & Description */}
-                <div className="space-y-1.5 flex-1">
-                  <h3
-                    className="text-base sm:text-lg font-serif font-bold text-white/95 group-hover:text-white transition-colors"
-                    style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
-                  >
+                <div className="space-y-1 flex-1">
+                  <h3 className="text-sm sm:text-base font-bold text-white/95 group-hover:text-white transition-colors">
                     {item.title}
                   </h3>
                   <p
-                    className="text-xs sm:text-sm text-white/60 font-medium leading-relaxed"
+                    className="text-xs sm:text-xs md:text-sm text-white/60 font-medium leading-relaxed"
                     style={{ fontFamily: 'Montserrat, sans-serif' }}
                   >
                     {item.description}

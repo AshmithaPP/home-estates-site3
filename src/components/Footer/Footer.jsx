@@ -14,16 +14,16 @@ const Footer = ({ onOpenTourModal, onOpenApply }) => {
           <div className="lg:col-span-2 space-y-4">
             <a href="#" className="inline-block">
               <img
-                src="/images/logo/AJAY (1).png"
+                src="/images/logo/new-logo-updated.png"
                 alt="Ajay Builders & Property Developers"
-                className="h-10 sm:h-14 md:h-16 w-auto object-contain hover:opacity-95 transition-opacity"
+                className="h-28 sm:h-36 md:h-44 lg:h-48 w-auto object-contain hover:opacity-95 transition-opacity -my-8 -ml-4"
               />
             </a>
             <p className="text-sm text-white/80 max-w-sm leading-relaxed font-normal">
               One of the fastest growing construction firms in Chennai, delivering quality residential flats, villas, and land partnership promotions with custom solutions for thousands of families.
             </p>
-            <div className="p-3.5 rounded-xl bg-white/5 border border-[#00d26a]/30 max-w-sm shadow-sm backdrop-blur-md">
-              <span className="text-[11px] font-extrabold text-[#00d26a] uppercase tracking-wider block">Our Philosophy</span>
+            <div className="p-3.5 rounded-xl bg-white/5 border border-[var(--primary)]/30 max-w-sm shadow-sm backdrop-blur-md">
+              <span className="text-[11px] font-extrabold text-[var(--primary)] uppercase tracking-wider block">Our Philosophy</span>
               <p className="text-xs italic text-white font-serif-luxury">"Our customers are our ambassadors."</p>
             </div>
             <div className="flex items-center gap-3 pt-1">
@@ -50,11 +50,11 @@ const Footer = ({ onOpenTourModal, onOpenApply }) => {
               Explore
             </h4>
             <ul className="space-y-2.5 text-sm text-white/75 font-medium">
-              <li><a href="#hero" className="hover:text-[#2d6a4f] transition-colors">Home</a></li>
-              <li><a href="#gallery" className="hover:text-[#2d6a4f] transition-colors">Photo Gallery</a></li>
-              <li><a href="#living" className="hover:text-[#2d6a4f] transition-colors">Everyday Living</a></li>
-              <li><a href="#balanced" className="hover:text-[#2d6a4f] transition-colors">Floor Plans</a></li>
-              <li><a href="#stories" className="hover:text-[#2d6a4f] transition-colors">Customer Stories</a></li>
+              <li><a href="#hero" className="hover:text-[var(--primary)] transition-colors">Home</a></li>
+              <li><a href="#gallery" className="hover:text-[var(--primary)] transition-colors">Photo Gallery</a></li>
+              <li><a href="#living" className="hover:text-[var(--primary)] transition-colors">Everyday Living</a></li>
+              <li><a href="#balanced" className="hover:text-[var(--primary)] transition-colors">Floor Plans</a></li>
+              <li><a href="#stories" className="hover:text-[var(--primary)] transition-colors">Customer Stories</a></li>
             </ul>
           </div>
 
@@ -64,11 +64,11 @@ const Footer = ({ onOpenTourModal, onOpenApply }) => {
               Services
             </h4>
             <ul className="space-y-2.5 text-sm text-white/75 font-medium">
-              <li><button onClick={onOpenApply} className="hover:text-[#2d6a4f] transition-colors text-left cursor-pointer">Land Partnership</button></li>
-              <li><button onClick={onOpenTourModal} className="hover:text-[#2d6a4f] transition-colors text-left cursor-pointer">Schedule a Tour</button></li>
-              <li><button onClick={onOpenApply} className="hover:text-[#2d6a4f] transition-colors text-left cursor-pointer">Digital Application</button></li>
-              <li><a href="#" className="hover:text-[#2d6a4f] transition-colors">Architectural Customization</a></li>
-              <li><a href="#" className="hover:text-[#2d6a4f] transition-colors">Estate Management</a></li>
+              <li><button onClick={onOpenApply} className="hover:text-[var(--primary)] transition-colors text-left cursor-pointer">Land Partnership</button></li>
+              <li><button onClick={onOpenTourModal} className="hover:text-[var(--primary)] transition-colors text-left cursor-pointer">Schedule a Tour</button></li>
+              <li><button onClick={onOpenApply} className="hover:text-[var(--primary)] transition-colors text-left cursor-pointer">Digital Application</button></li>
+              <li><a href="#" className="hover:text-[var(--primary)] transition-colors">Architectural Customization</a></li>
+              <li><a href="#" className="hover:text-[var(--primary)] transition-colors">Estate Management</a></li>
             </ul>
           </div>
 
@@ -79,15 +79,15 @@ const Footer = ({ onOpenTourModal, onOpenApply }) => {
             </h4>
             <ul className="space-y-3 text-sm text-white/75 font-medium">
               <li className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-[#00d26a]" />
+                <MapPin className="w-4 h-4 text-[var(--primary)]" />
                 <span>Anna Nagar, Chennai, TN</span>
               </li>
               <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-[#00d26a]" />
+                <Phone className="w-4 h-4 text-[var(--primary)]" />
                 <span>+91 98400 12345</span>
               </li>
               <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-[#00d26a]" />
+                <Mail className="w-4 h-4 text-[var(--primary)]" />
                 <span>contact@ajayhomes.com</span>
               </li>
             </ul>

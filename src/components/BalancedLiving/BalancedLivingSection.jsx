@@ -1,31 +1,32 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDownRight, Bed, Bath, Move, Sparkles } from 'lucide-react';
+import { Bed, Bath, Move, ArrowDownRight } from 'lucide-react';
 import { floorplansData } from '../../data/floorplansData';
+import PrimaryButton from '../Common/PrimaryButton';
 
 /**
  * BalancedLivingSection Component
  * ALL 4 floorplan cards explicitly displayed on all desktop & laptop screens (md:grid-cols-4 gap-4).
- * Smooth 1.2s right-to-left gliding entrance with primary orange (#FE9601) theme.
+ * Reusable PrimaryButton used for consistent card CTA.
  */
 export const BalancedLivingSection = ({ onOpenApply }) => {
   return (
-    <section id="gallery" className="relative w-full py-20 px-4 sm:px-6 md:px-8 text-[#f0ede8] overflow-hidden" style={{ background: '#090a0d' }}>
+    <section id="gallery" className="relative w-full py-14 sm:py-20 lg:py-24 px-4 sm:px-6 md:px-8 text-[#f0ede8] overflow-hidden" style={{ background: '#090a0d' }}>
 
       {/* Background Ambient Glows */}
       <div className="absolute top-10 left-10 w-96 h-96 bg-[#ff8c00]/8 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#00d26a]/8 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-[var(--primary)]/8 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-[1800px] mx-auto space-y-10 relative z-10">
 
         {/* Centered Headline */}
         <div className="text-center max-w-2xl mx-auto space-y-1 select-none">
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-serif-luxury font-normal text-[#f0ede8] tracking-tight leading-snug">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-normal text-[#f0ede8] tracking-tight leading-snug font-sans">
             Where luxury living
           </h2>
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-serif-luxury font-normal text-[#f0ede8] tracking-tight leading-snug">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-normal text-[#f0ede8] tracking-tight leading-snug font-sans">
             feels{' '}
-            <span className="font-serif-luxury text-[#ff8c00] inline-block">
+            <span className="text-[#ff8c00] inline-block font-sans">
               balanced
             </span>
           </h2>
@@ -49,9 +50,9 @@ export const BalancedLivingSection = ({ onOpenApply }) => {
                 scale: 1.02,
                 transition: { duration: 0.25, ease: 'easeOut' },
               }}
-              className="bg-[#13151c] p-3.5 sm:p-4 rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_22px_45px_rgba(255,140,0,0.2)] border border-white/10 hover:border-[#ff8c00]/40 flex flex-col justify-between transition-all duration-300 cursor-pointer group"
+              className="bg-[#13151c] p-5 sm:p-6 rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_22px_45px_rgba(255,140,0,0.2)] border border-white/10 hover:border-[#ff8c00]/40 flex flex-col justify-between transition-all duration-300 cursor-pointer group"
             >
-              <div className="space-y-3">
+              <div className="space-y-4">
 
                 {/* Image Container with Available Status Badge */}
                 <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-[#0d1117]">
@@ -61,9 +62,9 @@ export const BalancedLivingSection = ({ onOpenApply }) => {
                     className="w-full h-full object-cover group-hover:scale-106 transition-transform duration-500"
                   />
 
-                  {/* Available Tag in Helper Green #2d6a4f */}
+                  {/* Available Tag in Primary Theme */}
                   {plan.available && (
-                    <div className="absolute top-2 left-2 px-2.5 py-1 rounded-md bg-[#00d26a] text-black text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-md">
+                    <div className="absolute top-2.5 left-2.5 px-3 py-1 rounded-md bg-[var(--primary)] text-black text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-md">
                       <span className="w-1.5 h-1.5 rounded-full bg-black animate-pulse" />
                       <span>Available</span>
                     </div>
@@ -71,15 +72,15 @@ export const BalancedLivingSection = ({ onOpenApply }) => {
 
                   {/* Spec Pills Badge at bottom of image */}
                     <div className="absolute bottom-2 left-1.5 right-1.5 flex items-center gap-1 bg-black/70 backdrop-blur-md p-1 rounded-lg border border-white/10 text-[9px] sm:text-[10px] font-bold text-[#f0ede8] shadow-sm">
-                      <div className="flex items-center gap-1 px-1 py-0.5 rounded bg-white/10">
+                      <div className="flex items-center gap-1 px-1.5 py-0.5 rounded bg-white/10">
                         <Bed className="w-2.5 h-2.5 text-[#ff8c00]" />
                         <span>{plan.specs.beds} Bed</span>
                       </div>
-                      <div className="flex items-center gap-1 px-1 py-0.5 rounded bg-white/10">
+                      <div className="flex items-center gap-1 px-1.5 py-0.5 rounded bg-white/10">
                         <Bath className="w-2.5 h-2.5 text-[#ff8c00]" />
                         <span>{plan.specs.baths} Bath</span>
                       </div>
-                      <div className="flex items-center gap-1 px-1 py-0.5 rounded bg-white/10 ml-auto">
+                      <div className="flex items-center gap-1 px-1.5 py-0.5 rounded bg-white/10 ml-auto">
                         <Move className="w-2.5 h-2.5 text-[#ff8c00]" />
                         <span>{plan.specs.sqft} ft²</span>
                       </div>
@@ -88,7 +89,7 @@ export const BalancedLivingSection = ({ onOpenApply }) => {
 
                 {/* Title Header */}
                 <div className="flex items-center justify-between pt-0.5">
-                  <h3 className="font-serif-luxury font-bold text-base sm:text-lg text-[#f0ede8]">
+                  <h3 className="font-bold text-base sm:text-lg text-[#f0ede8] font-sans">
                     {plan.title}
                   </h3>
                 </div>
@@ -100,17 +101,16 @@ export const BalancedLivingSection = ({ onOpenApply }) => {
 
               </div>
 
-              {/* Explore Details CTA Button in Primary Orange */}
-              <div className="pt-3 border-t border-white/10 flex items-center gap-2">
-                <button
+              {/* Reusable Primary Button for Card CTA */}
+              <div className="pt-3 border-t border-white/10 flex items-center">
+                <PrimaryButton
+                  size="sm"
                   onClick={onOpenApply}
-                  className="flex-1 btn-gold-gradient py-2 px-3 rounded-xl text-xs font-bold flex items-center justify-between group-hover:shadow-md transition-all"
+                  icon={ArrowDownRight}
+                  className="w-full"
                 >
-                  <span>Explore Details</span>
-                  <div className="w-4 h-4 rounded-full bg-black/10 flex items-center justify-center group-hover:translate-x-0.5 transition-transform">
-                    <ArrowDownRight className="w-3 h-3 text-black" />
-                  </div>
-                </button>
+                  Explore Details
+                </PrimaryButton>
               </div>
 
             </motion.div>

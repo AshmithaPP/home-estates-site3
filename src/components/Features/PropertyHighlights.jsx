@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Wifi, Compass, Award, Sparkles, ArrowDownRight, MapPin } from 'lucide-react';
+import { ShieldCheck, Wifi, Compass, Award, Sparkles, ArrowDownRight, ArrowUpRight } from 'lucide-react';
+import PrimaryButton from '../Common/PrimaryButton';
 
 export const PropertyHighlights = ({ onOpenTour, onOpenApply }) => {
   const highlights = [
@@ -29,7 +30,7 @@ export const PropertyHighlights = ({ onOpenTour, onOpenApply }) => {
   return (
     <section id="residences" className="relative bg-[#0a0b0e] py-24 px-4 sm:px-8 border-t border-white/10 overflow-hidden">
       {/* Ambient background glow */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-[#fe9601]/10 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-[#ff8c00]/10 rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#ffc973]/10 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10 space-y-16">
@@ -37,11 +38,11 @@ export const PropertyHighlights = ({ onOpenTour, onOpenApply }) => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="space-y-3">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.3em] text-[#fe9601]">
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.3em] text-[#ff8c00]">
               <Sparkles className="w-4 h-4" />
               <span>Unmatched Living Standards</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-serif-luxury font-bold text-white">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-normal text-white tracking-tight leading-snug font-sans">
               Designed for Focused Mornings & Balanced Living
             </h2>
           </div>
@@ -61,9 +62,9 @@ export const PropertyHighlights = ({ onOpenTour, onOpenApply }) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="glass-card p-8 rounded-3xl border border-white/10 hover:border-[#fe9601]/50 group transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(254,150,1,0.15)]"
+                className="glass-card p-8 rounded-3xl border border-white/10 hover:border-[#ff8c00]/50 group transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(254,150,1,0.15)]"
               >
-                <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/15 flex items-center justify-center text-[#fe9601] group-hover:bg-[#fe9601] group-hover:text-black transition-all mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/15 flex items-center justify-center text-[#ff8c00] group-hover:bg-[#ff8c00] group-hover:text-black transition-all mb-6">
                   <IconComponent className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-serif-luxury font-semibold text-white mb-2 group-hover:text-[#ffc973] transition-colors">
@@ -77,10 +78,10 @@ export const PropertyHighlights = ({ onOpenTour, onOpenApply }) => {
           })}
         </div>
 
-        {/* Banner CTA Card (Using Client's Requested Golden Gradient & Color Scheme) */}
+        {/* Banner CTA Card */}
         <div className="relative rounded-3xl p-8 sm:p-12 bg-gradient-to-r from-[#181a22] via-[#20222e] to-[#181a22] border border-[#ffc973]/30 overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-8 shadow-2xl">
           <div className="space-y-4 max-w-xl text-center lg:text-left">
-            <span className="px-3.5 py-1 rounded-full bg-[#2d6a4f] text-white text-xs font-bold uppercase tracking-wider shadow-sm">
+            <span className="px-3.5 py-1 rounded-full bg-[var(--primary)] text-white text-xs font-bold uppercase tracking-wider shadow-sm">
               Limited Availability for Fall 2026
             </span>
             <h3 className="text-2xl sm:text-4xl font-serif-luxury font-bold text-white">
@@ -92,19 +93,22 @@ export const PropertyHighlights = ({ onOpenTour, onOpenApply }) => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-            <button
+            <PrimaryButton
+              variant="glass"
+              size="lg"
               onClick={onOpenTour}
-              className="glass-pill px-6 py-3.5 rounded-2xl font-semibold text-sm text-white hover:bg-white/20 transition-all text-center cursor-pointer"
+              icon={ArrowUpRight}
             >
               Book Private Tour
-            </button>
-            <button
+            </PrimaryButton>
+            <PrimaryButton
+              variant="primary"
+              size="lg"
               onClick={onOpenApply}
-              className="btn-gold-gradient px-8 py-3.5 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 cursor-pointer shadow-lg"
+              icon={ArrowDownRight}
             >
-              <span>Get the report & Apply</span>
-              <ArrowDownRight className="w-4 h-4" />
-            </button>
+              Get the report & Apply
+            </PrimaryButton>
           </div>
         </div>
 

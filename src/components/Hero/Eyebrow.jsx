@@ -21,9 +21,9 @@ export const Eyebrow = ({ text, slideId }) => {
           <motion.div
             animate={{ y: [0, -3, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-            className="glass-pill-dark px-4 py-1.5 rounded-full border border-[#2d6a4f]/50 shadow-md text-xs font-medium text-white/95 flex items-center hover:border-[#2d6a4f] transition-colors"
+            className="glass-pill-dark px-4 py-1.5 rounded-full border border-[var(--primary)]/50 shadow-md text-xs font-medium text-white/95 flex items-center hover:border-[var(--primary)] transition-colors"
           >
-            <span className="w-2 h-2 rounded-full bg-[#2d6a4f] mr-2 inline-block shadow-[0_0_6px_#2d6a4f]" />
+            <span className="w-2 h-2 rounded-full bg-[var(--primary)] mr-2 inline-block shadow-[0_0_6px_var(--primary)]" />
             <span className="tracking-wide">({text})</span>
           </motion.div>
         </motion.div>

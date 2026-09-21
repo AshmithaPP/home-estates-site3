@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
+import PrimaryButton from '../Common/PrimaryButton';
 
 const FindYourPlaceSection = ({ onOpenTourModal }) => {
   return (
@@ -25,7 +26,7 @@ const FindYourPlaceSection = ({ onOpenTourModal }) => {
         >
           {/* Card Headline */}
           <div className="space-y-3">
-            <h2 className="text-3xl sm:text-5xl font-bold font-serif-luxury leading-[1.1] tracking-tight text-[#f0ede8]">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-normal text-[#f0ede8] tracking-tight leading-snug font-sans">
               Interested in promoting your property?
             </h2>
             <p className="text-xs sm:text-sm text-[#a0a0a0] font-sans leading-relaxed pt-1 font-medium">
@@ -35,21 +36,13 @@ const FindYourPlaceSection = ({ onOpenTourModal }) => {
 
           {/* Bottom Controls inside card */}
           <div className="mt-8 pt-4 flex items-center justify-between border-t border-white/10">
-            {/* Button Group */}
-            <div className="flex items-center gap-2">
-              <button
-                onClick={onOpenTourModal}
-                className="btn-gold-gradient px-6 py-3 rounded-xl text-xs sm:text-sm font-bold tracking-wide transition-all cursor-pointer shadow-md"
-              >
-                Get Best Offer
-              </button>
-              <button
-                onClick={onOpenTourModal}
-                className="w-10 h-10 rounded-xl bg-[#00d26a] hover:bg-[#00a352] text-black flex items-center justify-center transition-all cursor-pointer shadow-md"
-              >
-                <ArrowUpRight className="w-4 h-4 text-black" />
-              </button>
-            </div>
+            {/* Reusable Primary Button */}
+            <PrimaryButton
+              onClick={onOpenTourModal}
+              icon={ArrowUpRight}
+            >
+              Get Best Offer
+            </PrimaryButton>
 
             {/* Line Art Door Icon */}
             <div className="text-[#ff8c00] opacity-80 hover:opacity-100 transition-opacity">

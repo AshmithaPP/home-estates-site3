@@ -41,17 +41,12 @@ const testimonials = [
   },
 ];
 
-/**
- * CustomerStoriesSection — 5th Section
- * Modern Overlapping Testimonials Layout with:
- * - Our video (/videos/vid-001.mp4) playing inside the left portrait card with circular orange play button
- * - Our dark luxury theme palette (#0d0e11 background, #ff8c00 accents, dark glass cards #13151c)
- * - Our authentic customer testimonial contents & 5-star ratings
- */
 export const CustomerStoriesSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const videoRef = useRef(null);
+  const scrollContainerRef = useRef(null);
+  const isProgrammaticScroll = useRef(false);
 
   useEffect(() => {
     if (videoRef.current) {
@@ -59,9 +54,7 @@ export const CustomerStoriesSection = () => {
       const playPromise = videoRef.current.play();
       if (playPromise !== undefined) {
         playPromise
-          .then(() => {
-            setIsPlaying(true);
-          })
+          .then(() => setIsPlaying(true))
           .catch((err) => {
             console.log("Autoplay was prevented:", err);
             setIsPlaying(false);
@@ -70,12 +63,60 @@ export const CustomerStoriesSection = () => {
     }
   }, []);
 
+  // Smooth scroll to card by index
+  const scrollToCard = (index) => {
+    if (!scrollContainerRef.current) return;
+    const container = scrollContainerRef.current;
+    const cards = container.firstElementChild?.children;
+    if (!cards || !cards[index]) return;
+
+    const targetCard = cards[index];
+    const targetLeft = targetCard.offsetLeft;
+
+    isProgrammaticScroll.current = true;
+    setCurrentIndex(index);
+    container.scrollTo({
+      left: Math.max(0, targetLeft),
+      behavior: 'smooth',
+    });
+
+    setTimeout(() => {
+      isProgrammaticScroll.current = false;
+    }, 450);
+  };
+
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    const nextIdx = (currentIndex + 1) % testimonials.length;
+    scrollToCard(nextIdx);
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    const prevIdx = (currentIndex - 1 + testimonials.length) % testimonials.length;
+    scrollToCard(prevIdx);
+  };
+
+  // Sync index when user manually swipes / scrolls cards on mobile or desktop
+  const handleScroll = () => {
+    if (isProgrammaticScroll.current || !scrollContainerRef.current) return;
+    const container = scrollContainerRef.current;
+    const cards = container.firstElementChild?.children;
+    if (!cards || cards.length === 0) return;
+
+    const scrollLeft = container.scrollLeft;
+    let closestIdx = 0;
+    let minDistance = Infinity;
+
+    for (let i = 0; i < cards.length; i++) {
+      const distance = Math.abs(cards[i].offsetLeft - scrollLeft);
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestIdx = i;
+      }
+    }
+
+    if (closestIdx !== currentIndex) {
+      setCurrentIndex(closestIdx);
+    }
   };
 
   const toggleVideo = () => {
@@ -86,9 +127,7 @@ export const CustomerStoriesSection = () => {
       } else {
         videoRef.current
           .play()
-          .then(() => {
-            setIsPlaying(true);
-          })
+          .then(() => setIsPlaying(true))
           .catch(() => {});
       }
     }
@@ -97,7 +136,7 @@ export const CustomerStoriesSection = () => {
   return (
     <section
       id="stories"
-      className="relative w-full py-12 lg:py-16 px-4 sm:px-8 lg:px-16 overflow-hidden"
+      className="relative w-full py-14 sm:py-20 lg:py-24 px-4 sm:px-8 lg:px-16 overflow-hidden"
       style={{ background: '#0d0e11' }}
     >
       <div className="max-w-7xl mx-auto space-y-6 relative z-10">
@@ -124,8 +163,8 @@ export const CustomerStoriesSection = () => {
 
             {/* Main Headline */}
             <h2
-              className="text-3xl sm:text-4xl lg:text-5xl font-serif text-white tracking-tight leading-tight"
-              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+              className="text-2xl sm:text-4xl lg:text-5xl font-normal text-white tracking-tight leading-snug font-sans"
+              style={{ fontFamily: 'Montserrat, sans-serif' }}
             >
               Customer Stories
             </h2>
@@ -159,7 +198,7 @@ export const CustomerStoriesSection = () => {
         </div>
 
         {/* ── MAIN OVERLAPPING LAYOUT CONTAINER ──────────────────────────── */}
-        <div className="relative flex flex-col md:flex-row items-center md:items-stretch w-full min-h-[420px]">
+        <div className="relative flex flex-col md:flex-row items-center md:items-stretch w-full min-h-[420px] gap-6 lg:gap-8">
 
           {/* ── LEFT FEATURE PORTRAIT CARD WITH OUR VIDEO & PLAY BUTTON ────── */}
           <motion.div
@@ -167,7 +206,7 @@ export const CustomerStoriesSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="relative w-full md:w-[320px] lg:w-[380px] h-[420px] rounded-2xl overflow-hidden shadow-2xl flex-shrink-0 z-40 border border-white/10 bg-[#0c0d10] group flex flex-col justify-between"
+            className="relative w-full md:w-[320px] lg:w-[350px] h-[360px] sm:h-[420px] rounded-2xl overflow-hidden shadow-2xl flex-shrink-0 z-40 border border-white/10 bg-[#0c0d10] group flex flex-col justify-between"
           >
             {/* Our Project Video - Autoplays seamlessly */}
             <video
@@ -188,7 +227,7 @@ export const CustomerStoriesSection = () => {
             {/* Verified Story Pill Top-Left */}
             <div className="relative z-20 p-5">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-[10px] font-bold text-white/90 uppercase tracking-wider shadow-md">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#00d26a]" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#ff8c00]" />
                 VERIFIED STORY
               </span>
             </div>
@@ -219,45 +258,45 @@ export const CustomerStoriesSection = () => {
             </div>
           </motion.div>
 
-          {/* ── RIGHT CAROUSEL TRACK WITH OVERLAPPING DARK GLASS CARDS ──────── */}
-          <div className="w-full md:flex-1 overflow-hidden relative z-10 mt-6 md:mt-0 py-4 px-1 md:pl-6 flex items-center">
-            <motion.div
-              animate={{ x: -currentIndex * 390 }}
-              transition={{ type: 'spring', stiffness: 220, damping: 26 }}
-              className="flex gap-5 items-center"
-            >
+          {/* ── RIGHT CAROUSEL TRACK WITH NATIVE TOUCH SWIPE & SMOOTH SCROLL ─ */}
+          <div
+            ref={scrollContainerRef}
+            onScroll={handleScroll}
+            className="w-full md:flex-1 relative z-10 mt-6 md:mt-0 py-2 flex items-center overflow-x-auto scrollbar-none snap-x snap-mandatory scroll-smooth"
+            style={{
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+              WebkitOverflowScrolling: 'touch',
+            }}
+          >
+            <div className="flex gap-4 md:gap-5 items-center">
               {testimonials.map((card, idx) => {
                 const isActive = idx === currentIndex;
                 return (
-                  <motion.div
+                  <div
                     key={card.id}
-                    animate={{
-                      scale: isActive ? 1.02 : 0.96,
-                      opacity: isActive ? 1 : 0.6,
-                    }}
-                    transition={{ duration: 0.3 }}
-                    whileHover={{ y: -6, borderColor: 'rgba(255, 140, 0, 0.4)' }}
-                    className={`bg-[#13151c] text-[#f0ede8] rounded-2xl p-6 sm:p-8 shadow-2xl border flex flex-col justify-between space-y-6 w-[310px] sm:w-[370px] lg:w-[400px] flex-shrink-0 transition-colors duration-300 min-h-[260px] ${
+                    onClick={() => scrollToCard(idx)}
+                    className={`snap-start bg-[#13151c] text-[#f0ede8] rounded-2xl p-5 sm:p-7 shadow-2xl border flex flex-col justify-between space-y-5 w-[calc(100vw-48px)] max-w-[340px] sm:w-[340px] lg:w-[360px] flex-shrink-0 transition-all duration-300 min-h-[250px] cursor-pointer ${
                       isActive
-                        ? 'z-20 shadow-[0_20px_50px_rgba(0,0,0,0.6)] border-[#ff8c00]/40'
-                        : 'z-10 border-white/10'
+                        ? 'z-20 shadow-[0_20px_50px_rgba(0,0,0,0.6)] border-[#ff8c00]/60 opacity-100'
+                        : 'z-10 border-white/10 opacity-60 hover:opacity-90'
                     }`}
                   >
-                    {/* Our Testimonial Quote Content */}
+                    {/* Testimonial Quote Content */}
                     <p
-                      className="text-xs sm:text-sm text-white/90 font-medium leading-relaxed font-sans"
+                      className="text-xs sm:text-sm text-white/90 font-medium leading-relaxed font-sans select-none"
                       style={{ fontFamily: 'Montserrat, sans-serif' }}
                     >
                       "{card.quote}"
                     </p>
 
                     {/* Bottom Author & Star Rating Block */}
-                    <div className="pt-3 border-t border-white/10 flex items-center justify-between gap-4">
-                      <div className="flex items-center gap-3">
+                    <div className="pt-3 border-t border-white/10 flex items-center justify-between gap-3 select-none">
+                      <div className="flex items-center gap-2.5">
                         <img
                           src={card.avatar}
                           alt={card.author}
-                          className="w-10 h-10 rounded-full object-cover border-2 border-[#ff8c00] shadow-md"
+                          className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover border-2 border-[#ff8c00] shadow-md"
                         />
                         <div>
                           <h4
@@ -289,20 +328,20 @@ export const CustomerStoriesSection = () => {
                         ))}
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 );
               })}
-            </motion.div>
+            </div>
           </div>
 
         </div>
 
         {/* ── BOTTOM CAROUSEL PROGRESS INDICATOR BARS ─────────────────────── */}
-        <div className="flex items-center justify-center gap-3 pt-4 select-none">
+        <div className="flex items-center justify-center gap-3 pt-2 select-none">
           {testimonials.map((_, idx) => (
             <button
               key={idx}
-              onClick={() => setCurrentIndex(idx)}
+              onClick={() => scrollToCard(idx)}
               className="cursor-pointer py-2"
               aria-label={`Go to slide ${idx + 1}`}
             >

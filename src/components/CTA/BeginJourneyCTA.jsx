@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import PrimaryButton from '../Common/PrimaryButton';
 
 const headlineLine1 = "READY TO FIND YOUR NEXT";
 const headlineLine2 = "HOME?";
@@ -10,35 +11,25 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.035,
-      delayChildren: 0.2,
+      staggerChildren: 0.03,
+      delayChildren: 0.1,
     },
   },
 };
 
 const letterVariants = {
-  hidden: { opacity: 0, y: 35, rotateX: -60 },
+  hidden: { opacity: 0, y: 24, filter: 'blur(8px)' },
   visible: {
     opacity: 1,
     y: 0,
-    rotateX: 0,
+    filter: 'blur(0px)',
     transition: {
-      type: 'spring',
-      damping: 12,
-      stiffness: 140,
+      duration: 0.5,
+      ease: [0.16, 1, 0.3, 1],
     },
   },
 };
 
-/**
- * BeginJourneyCTA Component — Last Pre-Footer CTA Section
- * Exact replica of reference UI:
- * - Eyebrow pill: —— BEGIN YOUR JOURNEY
- * - Staggered letter-by-letter 3D animated headline: "READY TO FIND YOUR NEXT HOME?"
- * - Subtitle paragraph
- * - 2 Buttons: "START A CONVERSATION →" (orange glowing) and "EXPLORE PROPERTIES" (dark outline)
- * - Full-width bottom orange accent border
- */
 export const BeginJourneyCTA = ({ onOpenApply }) => {
   const scrollToGallery = () => {
     const el = document.getElementById('gallery');
@@ -50,32 +41,40 @@ export const BeginJourneyCTA = ({ onOpenApply }) => {
   return (
     <section
       id="begin-journey"
-      className="relative w-full py-24 sm:py-32 px-6 sm:px-12 lg:px-20 text-[#f0ede8] overflow-hidden"
+      className="relative w-full py-16 sm:py-24 lg:py-28 px-4 sm:px-12 lg:px-20 text-[#f0ede8] overflow-hidden"
       style={{ background: '#0d0e11' }}
     >
-      {/* Matrix rain background effect */}
-      <div className="rain opacity-30" />
+      {/* Soft luxury ambient background spotlight */}
+      <div className="absolute inset-0 pointer-events-none flex items-center justify-center overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.7 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          className="w-[600px] h-[350px] bg-[radial-gradient(ellipse_at_center,rgba(255,140,0,0.18)_0%,rgba(255,140,0,0.04)_50%,transparent_75%)] blur-3xl rounded-full"
+        />
+      </div>
 
       <div className="max-w-5xl mx-auto flex flex-col items-center text-center space-y-8 relative z-10">
 
         {/* Top Eyebrow Pill with Accent Line: — BEGIN YOUR JOURNEY */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-sm bg-[#13151c] border border-white/10 shadow-md"
         >
-          <span className="w-5 h-[2px] bg-[#ff5722]" />
+          <span className="w-5 h-[2px] bg-[#ff8c00]" />
           <span
-            className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.3em] text-[#ff5722]"
+            className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.3em] text-[#ff8c00]"
             style={{ fontFamily: 'Montserrat, sans-serif' }}
           >
             BEGIN YOUR JOURNEY
           </span>
         </motion.div>
 
-        {/* Letter-by-Letter Animated & Glitch Matrix Headline */}
+        {/* Staggered Animated Headline */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -84,8 +83,8 @@ export const BeginJourneyCTA = ({ onOpenApply }) => {
           className="select-text cursor-text"
         >
           <h2
-            className="text-2xl sm:text-4xl lg:text-5xl font-serif text-white tracking-tight leading-[1.15] uppercase text-center"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            className="text-2xl sm:text-4xl lg:text-5xl font-normal text-white tracking-tight leading-snug uppercase text-center font-sans"
+            style={{ fontFamily: 'Montserrat, sans-serif' }}
           >
             {/* Line 1: READY TO FIND YOUR NEXT */}
             <div className="flex flex-wrap justify-center gap-x-[0.28em] gap-y-1">
@@ -104,21 +103,24 @@ export const BeginJourneyCTA = ({ onOpenApply }) => {
               ))}
             </div>
 
-            {/* Line 2: HOME? with Matrix Glitch Text Effect */}
+            {/* Line 2: HOME? with sleek luxury glowing text */}
             <div className="flex flex-wrap justify-center gap-x-[0.28em] pt-1 sm:pt-2">
-              {headlineLine2.split(' ').map((word, wordIdx) => (
-                <span key={wordIdx} className="inline-block whitespace-nowrap">
-                  {word.split('').map((char, charIdx) => (
-                    <motion.span
-                      key={charIdx}
-                      variants={letterVariants}
-                      className="inline-block text-[#ff5722] matrix-text"
-                      data-text={char}
-                    >
-                      {char}
-                    </motion.span>
-                  ))}
-                </span>
+              {headlineLine2.split('').map((char, charIdx) => (
+                <motion.span
+                  key={charIdx}
+                  variants={letterVariants}
+                  className="inline-block relative"
+                >
+                  <span className="relative z-10 bg-gradient-to-r from-[#ff8c00] via-[#ffab40] to-[#ff8c00] bg-clip-text text-transparent drop-shadow-[0_0_22px_rgba(255,140,0,0.6)]">
+                    {char}
+                  </span>
+                  <span
+                    className="absolute inset-0 z-0 text-[#ff8c00] blur-md opacity-50 select-none pointer-events-none"
+                    aria-hidden="true"
+                  >
+                    {char}
+                  </span>
+                </motion.span>
               ))}
             </div>
           </h2>
@@ -126,10 +128,10 @@ export const BeginJourneyCTA = ({ onOpenApply }) => {
 
         {/* Subtitle Paragraph */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
           className="text-xs sm:text-sm md:text-base text-white/70 font-medium max-w-2xl mx-auto leading-relaxed"
           style={{ fontFamily: 'Montserrat, sans-serif' }}
         >
@@ -138,38 +140,38 @@ export const BeginJourneyCTA = ({ onOpenApply }) => {
 
         {/* 2 CTA Buttons */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.75 }}
+          transition={{ duration: 0.6, delay: 0.55 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2 w-full sm:w-auto"
         >
-          {/* Primary Button: START A CONVERSATION -> */}
-          <button
+          <PrimaryButton
+            variant="primary"
+            size="lg"
             onClick={onOpenApply}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#ff5722] hover:bg-[#e64a19] text-white px-8 py-3.5 rounded-sm text-xs sm:text-sm font-bold tracking-widest uppercase shadow-[0_0_25px_rgba(255,87,34,0.45)] hover:shadow-[0_0_35px_rgba(255,87,34,0.65)] hover:scale-102 transition-all cursor-pointer"
-            style={{ fontFamily: 'Montserrat, sans-serif' }}
+            icon={ArrowRight}
           >
-            <span>START A CONVERSATION</span>
-            <ArrowRight className="w-4 h-4 text-white" />
-          </button>
+            Start a Conversation
+          </PrimaryButton>
 
-          {/* Secondary Button: EXPLORE PROPERTIES */}
-          <button
+          <PrimaryButton
+            variant="glass"
+            size="lg"
             onClick={scrollToGallery}
-            className="w-full sm:w-auto inline-flex items-center justify-center bg-white/5 hover:bg-white/10 border border-white/20 hover:border-white/40 text-white px-8 py-3.5 rounded-sm text-xs sm:text-sm font-bold tracking-widest uppercase transition-all cursor-pointer"
-            style={{ fontFamily: 'Montserrat, sans-serif' }}
+            icon={ArrowUpRight}
           >
-            EXPLORE PROPERTIES
-          </button>
+            Explore Properties
+          </PrimaryButton>
         </motion.div>
 
       </div>
 
       {/* Full-width bottom orange accent border line */}
-      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#ff5722]" />
+      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#ff8c00]" />
     </section>
   );
 };
 
 export default BeginJourneyCTA;
+

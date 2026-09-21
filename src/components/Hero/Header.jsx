@@ -27,9 +27,9 @@ export const Header = ({ onOpenTour, onOpenApply }) => {
             className="flex items-center gap-1.5 group shrink-0 ml-2 sm:ml-4 md:ml-6"
           >
             <img
-              src="/images/logo/AJAY (1).png"
+              src="/images/logo/new-logo-updated.png"
               alt="Ajay Builders & Property Developers"
-              className="h-8 sm:h-11 md:h-13 w-auto object-contain group-hover:scale-105 transition-transform"
+              className="h-20 sm:h-28 md:h-32 lg:h-36 w-auto object-contain group-hover:scale-105 transition-transform -my-5 sm:-my-7"
             />
           </motion.a>
 
@@ -97,12 +97,7 @@ export const Header = ({ onOpenTour, onOpenApply }) => {
               <div className="max-w-md mx-auto w-full space-y-3">
                 
                 {/* Header row inside menu */}
-                <div className="flex items-center justify-between pb-2 border-b border-white/10">
-                  <img
-                    src="/images/logo/AJAY (1).png"
-                    alt="Ajay Builders & Property Developers"
-                    className="h-7 sm:h-9 w-auto object-contain"
-                  />
+                <div className="flex items-center justify-end pb-2 border-b border-white/10">
                   <button
                     onClick={() => setIsMenuOpen(false)}
                     className="p-1 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
@@ -127,7 +122,7 @@ export const Header = ({ onOpenTour, onOpenApply }) => {
                       <span className="text-sm font-bold text-white group-hover:text-[#ff8c00] transition-colors">
                         {item.label}
                       </span>
-                      <ArrowDownRight className="w-4 h-4 text-[#00d26a] group-hover:text-[#ff8c00] group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-all" />
+                      <ArrowDownRight className="w-4 h-4 text-[var(--primary)] group-hover:text-[#ff8c00] group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-all" />
                     </motion.a>
                   ))}
                 </nav>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Calendar as CalendarIcon, Clock, User, Mail, Phone, CheckCircle2, Building, Sparkles } from 'lucide-react';
+import { X, Calendar as CalendarIcon, User, Mail, Phone, CheckCircle2, Sparkles, ArrowUpRight } from 'lucide-react';
+import PrimaryButton from '../Common/PrimaryButton';
 
 export const TourModal = ({ isOpen, onClose }) => {
   const [submitted, setSubmitted] = useState(false);
@@ -35,7 +36,7 @@ export const TourModal = ({ isOpen, onClose }) => {
           className="relative w-full max-w-xl bg-[#12141a] border border-white/15 rounded-3xl p-6 sm:p-8 text-white shadow-2xl overflow-hidden"
         >
           {/* Background Glow */}
-          <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#fe9601]/20 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#ff8c00]/20 rounded-full blur-3xl pointer-events-none" />
 
           {/* Close Button */}
           <button
@@ -68,7 +69,7 @@ export const TourModal = ({ isOpen, onClose }) => {
                         placeholder="Alex Morgan"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full bg-white/5 border border-white/15 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#fe9601]"
+                        className="w-full bg-white/5 border border-white/15 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#ff8c00]"
                       />
                     </div>
                   </div>
@@ -83,7 +84,7 @@ export const TourModal = ({ isOpen, onClose }) => {
                         placeholder="alex@example.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full bg-white/5 border border-white/15 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#fe9601]"
+                        className="w-full bg-white/5 border border-white/15 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#ff8c00]"
                       />
                     </div>
                   </div>
@@ -100,7 +101,7 @@ export const TourModal = ({ isOpen, onClose }) => {
                         placeholder="(803) 555-0199"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full bg-white/5 border border-white/15 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#fe9601]"
+                        className="w-full bg-white/5 border border-white/15 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#ff8c00]"
                       />
                     </div>
                   </div>
@@ -114,7 +115,7 @@ export const TourModal = ({ isOpen, onClose }) => {
                         required
                         value={formData.date}
                         onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                        className="w-full bg-white/5 border border-white/15 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#fe9601]"
+                        className="w-full bg-white/5 border border-white/15 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#ff8c00]"
                       />
                     </div>
                   </div>
@@ -126,7 +127,7 @@ export const TourModal = ({ isOpen, onClose }) => {
                     <select
                       value={formData.tourType}
                       onChange={(e) => setFormData({ ...formData, tourType: e.target.value })}
-                      className="w-full bg-[#1e2028] border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#fe9601]"
+                      className="w-full bg-[#1e2028] border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#ff8c00]"
                     >
                       <option value="In-Person">In-Person VIP Tour</option>
                       <option value="Virtual Live">3D Live Virtual Walkthrough</option>
@@ -139,7 +140,7 @@ export const TourModal = ({ isOpen, onClose }) => {
                     <select
                       value={formData.time}
                       onChange={(e) => setFormData({ ...formData, time: e.target.value })}
-                      className="w-full bg-[#1e2028] border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#fe9601]"
+                      className="w-full bg-[#1e2028] border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#ff8c00]"
                     >
                       <option value="10:00 AM">10:00 AM</option>
                       <option value="01:00 PM">01:00 PM</option>
@@ -149,12 +150,14 @@ export const TourModal = ({ isOpen, onClose }) => {
                   </div>
                 </div>
 
-                <button
+                <PrimaryButton
                   type="submit"
-                  className="w-full btn-gold-gradient py-3.5 rounded-xl text-center font-bold text-sm mt-4 shadow-lg hover:scale-101 active:scale-99 transition-all cursor-pointer"
+                  size="md"
+                  icon={ArrowUpRight}
+                  className="w-full mt-4"
                 >
                   Confirm Tour Booking
-                </button>
+                </PrimaryButton>
               </form>
             </div>
           ) : (
@@ -163,7 +166,7 @@ export const TourModal = ({ isOpen, onClose }) => {
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ type: 'spring', damping: 15 }}
-                className="w-16 h-16 rounded-full bg-[#fe9601]/20 border border-[#fe9601] flex items-center justify-center mx-auto text-[#fe9601]"
+                className="w-16 h-16 rounded-full bg-[#ff8c00]/20 border border-[#ff8c00] flex items-center justify-center mx-auto text-[#ff8c00]"
               >
                 <CheckCircle2 className="w-10 h-10" />
               </motion.div>
@@ -171,12 +174,14 @@ export const TourModal = ({ isOpen, onClose }) => {
               <p className="text-sm text-white/70 max-w-md mx-auto">
                 Thank you, <span className="text-white font-semibold">{formData.name}</span>. We have scheduled your <span className="text-[#ffc973]">{formData.tourType}</span> for <span className="text-[#ffc973]">{formData.date || 'tomorrow'} at {formData.time}</span>.
               </p>
-              <button
+              <PrimaryButton
                 onClick={handleReset}
-                className="btn-gold-gradient px-8 py-3 rounded-full font-bold text-sm mt-4"
+                size="md"
+                icon={ArrowUpRight}
+                className="mt-4"
               >
                 Done
-              </button>
+              </PrimaryButton>
             </div>
           )}
         </motion.div>

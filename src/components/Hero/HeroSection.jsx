@@ -124,7 +124,7 @@ export const HeroSection = () => {
             <div className="min-h-[120px] sm:min-h-[160px] md:min-h-[190px]">
               <AnimatePresence mode="wait">
                 <motion.div key={`title-container-${activeSlide.id}`}>
-                  <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif-luxury font-bold text-white tracking-tight leading-[1.05]">
+                  <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-white tracking-tight leading-[1.05] font-sans">
                     <AnimatedText
                       text={activeSlide.title}
                       accentWord={activeSlide.accentWord}
