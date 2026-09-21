@@ -72,7 +72,6 @@ export const FAQSection = ({ onOpenTourModal, onOpenApply }) => {
             <div>
               <span
                 className="text-xs font-bold uppercase tracking-[0.25em] text-[#ff8c00]"
-                style={{ fontFamily: 'Montserrat, sans-serif' }}
               >
                 FAQs
               </span>
@@ -81,7 +80,6 @@ export const FAQSection = ({ onOpenTourModal, onOpenApply }) => {
             {/* Main Headline */}
             <h2
               className="text-3xl sm:text-4xl lg:text-5xl font-normal text-white tracking-tight leading-tight font-sans"
-              style={{ fontFamily: 'Montserrat, sans-serif' }}
             >
               Frequently Asked <br />
               <span className="text-[#ff8c00]">Questions</span>
@@ -106,13 +104,11 @@ export const FAQSection = ({ onOpenTourModal, onOpenApply }) => {
               <div className="space-y-2">
                 <h3
                   className="text-xl sm:text-2xl font-bold text-white tracking-tight"
-                  style={{ fontFamily: 'Montserrat, sans-serif' }}
                 >
                   Book a 15 min call
                 </h3>
                 <p
                   className="text-xs sm:text-sm text-white/70 font-medium leading-relaxed"
-                  style={{ fontFamily: 'Montserrat, sans-serif' }}
                 >
                   If you have any questions, just book a 15-minute call with our senior estate experts before deciding.
                 </p>
@@ -122,7 +118,6 @@ export const FAQSection = ({ onOpenTourModal, onOpenApply }) => {
               <button
                 onClick={onOpenTourModal}
                 className="w-full py-3.5 px-6 rounded-full bg-[#ff8c00] hover:bg-[#e67e00] text-black font-bold text-sm tracking-wide transition-all duration-300 shadow-[0_0_20px_rgba(255,140,0,0.35)] hover:shadow-[0_0_30px_rgba(255,140,0,0.5)] cursor-pointer flex items-center justify-center gap-2 group/btn"
-                style={{ fontFamily: 'Montserrat, sans-serif' }}
               >
                 <Calendar className="w-4 h-4 text-black group-hover/btn:scale-110 transition-transform" />
                 <span>Book a Free Call</span>
@@ -158,7 +153,6 @@ export const FAQSection = ({ onOpenTourModal, onOpenApply }) => {
                       className={`text-sm sm:text-base font-semibold leading-snug transition-colors duration-300 ${
                         isOpen ? 'text-[#ff8c00]' : 'text-white/90 group-hover:text-white'
                       }`}
-                      style={{ fontFamily: 'Montserrat, sans-serif' }}
                     >
                       {item.question}
                     </span>
@@ -185,7 +179,6 @@ export const FAQSection = ({ onOpenTourModal, onOpenApply }) => {
                       >
                         <div
                           className="px-5 sm:px-6 pb-6 text-xs sm:text-sm text-white/75 font-normal leading-relaxed pt-1 border-t border-white/5"
-                          style={{ fontFamily: 'Montserrat, sans-serif' }}
                         >
                           {item.answer}
                         </div>

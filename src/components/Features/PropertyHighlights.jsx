@@ -67,7 +67,7 @@ export const PropertyHighlights = ({ onOpenTour, onOpenApply }) => {
                 <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/15 flex items-center justify-center text-[#ff8c00] group-hover:bg-[#ff8c00] group-hover:text-black transition-all mb-6">
                   <IconComponent className="w-6 h-6" />
                 </div>
-                <h3 className="text-xl font-serif-luxury font-semibold text-white mb-2 group-hover:text-[#ffc973] transition-colors">
+                <h3 className="text-xl font-sans font-semibold text-white mb-2 group-hover:text-[#ffc973] transition-colors">
                   {item.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-white/70 leading-relaxed">
@@ -84,7 +84,7 @@ export const PropertyHighlights = ({ onOpenTour, onOpenApply }) => {
             <span className="px-3.5 py-1 rounded-full bg-[var(--primary)] text-white text-xs font-bold uppercase tracking-wider shadow-sm">
               Limited Availability for Fall 2026
             </span>
-            <h3 className="text-2xl sm:text-4xl font-serif-luxury font-bold text-white">
+            <h3 className="text-2xl sm:text-4xl font-sans font-bold text-white">
               Secure Your Estate Residence Today
             </h3>
             <p className="text-sm text-white/70">

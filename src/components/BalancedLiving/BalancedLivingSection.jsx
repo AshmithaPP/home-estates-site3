@@ -11,7 +11,7 @@ import PrimaryButton from '../Common/PrimaryButton';
  */
 export const BalancedLivingSection = ({ onOpenApply }) => {
   return (
-    <section id="gallery" className="relative w-full py-14 sm:py-20 lg:py-24 px-4 sm:px-6 md:px-8 text-[#f0ede8] overflow-hidden" style={{ background: '#090a0d' }}>
+    <section id="gallery" className="relative w-full py-12 sm:py-16 lg:py-20 px-4 sm:px-6 md:px-8 text-[#f0ede8] overflow-hidden" style={{ background: '#090a0d' }}>
 
       {/* Background Ambient Glows */}
       <div className="absolute top-10 left-10 w-96 h-96 bg-[#ff8c00]/8 rounded-full blur-[140px] pointer-events-none" />

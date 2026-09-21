@@ -27,9 +27,9 @@ export const Header = ({ onOpenTour, onOpenApply }) => {
             className="flex items-center gap-1.5 group shrink-0 ml-2 sm:ml-4 md:ml-6"
           >
             <img
-              src="/images/logo/new-logo-updated.png"
+              src="/images/logo/logo-ajay-homes.png"
               alt="Ajay Builders & Property Developers"
-              className="h-20 sm:h-28 md:h-32 lg:h-36 w-auto object-contain group-hover:scale-105 transition-transform -my-5 sm:-my-7"
+              className="h-9 sm:h-10 md:h-11 lg:h-12 w-auto object-contain group-hover:scale-105 transition-transform"
             />
           </motion.a>
 

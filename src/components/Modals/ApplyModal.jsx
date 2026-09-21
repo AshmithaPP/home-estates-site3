@@ -45,7 +45,7 @@ export const ApplyModal = ({ isOpen, onClose }) => {
               </div>
 
               {/* Big Title Typography */}
-              <h2 className="text-3xl sm:text-5xl font-montserrat font-black leading-tight tracking-tight uppercase text-[#160d02]">
+              <h2 className="text-3xl sm:text-5xl font-sans font-black leading-tight tracking-tight uppercase text-[#160d02]">
                 2026 GLOBAL LUXURY & ESTATE TRENDS REPORT
               </h2>
 
@@ -90,7 +90,7 @@ export const ApplyModal = ({ isOpen, onClose }) => {
               <div className="w-16 h-16 rounded-full bg-[#ff8c00] flex items-center justify-center mx-auto text-[#160d02]">
                 <Download className="w-8 h-8" />
               </div>
-              <h3 className="text-3xl font-montserrat font-black uppercase">Report Sent!</h3>
+              <h3 className="text-3xl font-sans font-black uppercase">Report Sent!</h3>
               <p className="text-sm text-[#160d02]/80 max-w-md mx-auto">
                 We have emailed the 2026 Trends Report and pre-lease application link to <span className="font-bold underline">{email}</span>.
               </p>

@@ -155,7 +155,6 @@ export const CustomerStoriesSection = () => {
               <span className="w-8 h-[2px] bg-[#ff8c00]" />
               <span
                 className="text-xs font-bold uppercase tracking-[0.3em] text-[#ff8c00]"
-                style={{ fontFamily: 'Montserrat, sans-serif' }}
               >
                 TESTIMONIALS
               </span>
@@ -164,7 +163,6 @@ export const CustomerStoriesSection = () => {
             {/* Main Headline */}
             <h2
               className="text-2xl sm:text-4xl lg:text-5xl font-normal text-white tracking-tight leading-snug font-sans"
-              style={{ fontFamily: 'Montserrat, sans-serif' }}
             >
               Customer Stories
             </h2>
@@ -172,7 +170,6 @@ export const CustomerStoriesSection = () => {
             {/* Subtitle */}
             <p
               className="text-xs sm:text-sm text-white/60 font-medium tracking-wide"
-              style={{ fontFamily: 'Montserrat, sans-serif' }}
             >
               Hear It From The People We Built For.
             </p>
@@ -285,7 +282,6 @@ export const CustomerStoriesSection = () => {
                     {/* Testimonial Quote Content */}
                     <p
                       className="text-xs sm:text-sm text-white/90 font-medium leading-relaxed font-sans select-none"
-                      style={{ fontFamily: 'Montserrat, sans-serif' }}
                     >
                       "{card.quote}"
                     </p>
@@ -301,13 +297,11 @@ export const CustomerStoriesSection = () => {
                         <div>
                           <h4
                             className="text-xs font-bold uppercase tracking-wider text-white"
-                            style={{ fontFamily: 'Montserrat, sans-serif' }}
                           >
                             {card.author}
                           </h4>
                           <p
                             className="text-[10px] sm:text-xs text-white/60 font-medium"
-                            style={{ fontFamily: 'Montserrat, sans-serif' }}
                           >
                             {card.role}
                           </p>

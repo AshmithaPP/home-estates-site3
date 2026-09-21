@@ -59,7 +59,7 @@ export const EverydayLivingSection = () => {
   return (
     <section
       id="interior"
-      className="relative w-full lg:min-h-screen lg:flex lg:items-center lg:justify-center py-12 lg:py-0 px-4 sm:px-10 lg:px-16 text-[#f0ede8] overflow-hidden"
+      className="relative w-full py-12 sm:py-16 lg:py-20 px-4 sm:px-10 lg:px-16 text-[#f0ede8] overflow-hidden"
       style={{ background: '#0d0e11' }}
     >
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center relative z-10 w-full">
@@ -147,13 +147,11 @@ export const EverydayLivingSection = () => {
           >
             <span
               className="block text-2xl sm:text-3xl font-black text-[#ff8c00] tracking-tight leading-none"
-              style={{ fontFamily: 'Montserrat, sans-serif' }}
             >
               100%
             </span>
             <span
               className="block text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] text-white/60"
-              style={{ fontFamily: 'Montserrat, sans-serif' }}
             >
               TAILORED ARCHITECTURE
             </span>
@@ -176,7 +174,6 @@ export const EverydayLivingSection = () => {
               <span className="w-8 h-[2px] bg-[#ff8c00]" />
               <span
                 className="text-xs font-bold uppercase tracking-[0.3em] text-[#ff8c00]"
-                style={{ fontFamily: 'Montserrat, sans-serif' }}
               >
                 WHY HOME &amp; ESTATES
               </span>
@@ -185,7 +182,6 @@ export const EverydayLivingSection = () => {
             {/* Main Headline: Designed With Purpose. Built With Care. */}
             <h2
               className="text-2xl sm:text-4xl lg:text-5xl font-normal text-white tracking-tight leading-snug font-sans"
-              style={{ fontFamily: 'Montserrat, sans-serif' }}
             >
               Designed With Purpose.<br />
               Built With Care.
@@ -224,7 +220,6 @@ export const EverydayLivingSection = () => {
                   </h3>
                   <p
                     className="text-xs sm:text-xs md:text-sm text-white/60 font-medium leading-relaxed"
-                    style={{ fontFamily: 'Montserrat, sans-serif' }}
                   >
                     {item.description}
                   </p>

@@ -14,9 +14,9 @@ const Footer = ({ onOpenTourModal, onOpenApply }) => {
           <div className="lg:col-span-2 space-y-4">
             <a href="#" className="inline-block">
               <img
-                src="/images/logo/new-logo-updated.png"
+                src="/images/logo/logo-ajay-homes.png"
                 alt="Ajay Builders & Property Developers"
-                className="h-28 sm:h-36 md:h-44 lg:h-48 w-auto object-contain hover:opacity-95 transition-opacity -my-8 -ml-4"
+                className="h-12 sm:h-14 md:h-16 lg:h-18 w-auto object-contain hover:opacity-95 transition-opacity -my-2"
               />
             </a>
             <p className="text-sm text-white/80 max-w-sm leading-relaxed font-normal">
@@ -24,7 +24,7 @@ const Footer = ({ onOpenTourModal, onOpenApply }) => {
             </p>
             <div className="p-3.5 rounded-xl bg-white/5 border border-[var(--primary)]/30 max-w-sm shadow-sm backdrop-blur-md">
               <span className="text-[11px] font-extrabold text-[var(--primary)] uppercase tracking-wider block">Our Philosophy</span>
-              <p className="text-xs italic text-white font-serif-luxury">"Our customers are our ambassadors."</p>
+              <p className="text-xs italic text-white font-sans">"Our customers are our ambassadors."</p>
             </div>
             <div className="flex items-center gap-3 pt-1">
               <a

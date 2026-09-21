@@ -20,9 +20,9 @@ export const Navbar = ({ onOpenTourModal, onOpenApplyModal }) => {
             className="group flex items-center gap-2 ml-2 sm:ml-4 md:ml-6"
           >
             <img
-              src="/images/logo/new-logo-updated.png"
+              src="/images/logo/logo-ajay-homes.png"
               alt="Ajay Builders & Property Developers"
-              className="h-20 sm:h-28 md:h-32 lg:h-36 w-auto object-contain group-hover:scale-105 transition-transform -my-5 sm:-my-7"
+              className="h-9 sm:h-10 md:h-11 lg:h-12 w-auto object-contain group-hover:scale-105 transition-transform"
             />
           </motion.a>
 
@@ -107,7 +107,7 @@ export const Navbar = ({ onOpenTourModal, onOpenApplyModal }) => {
                 <p className="text-xs uppercase tracking-[0.3em] text-[#ff8c00] font-semibold">
                   Navigation Menu
                 </p>
-                <nav className="flex flex-col gap-4 text-3xl sm:text-5xl font-serif-luxury">
+                <nav className="flex flex-col gap-4 text-3xl sm:text-5xl font-sans">
                   {[
                     { label: 'Residences & Floorplans', href: '#residences' },
                     { label: 'Amenities & Services', href: '#amenities' },
@@ -137,7 +137,7 @@ export const Navbar = ({ onOpenTourModal, onOpenApplyModal }) => {
                   <Sparkles className="w-5 h-5" />
                   <span className="text-sm font-semibold tracking-wider uppercase">21OAKS Estates</span>
                 </div>
-                <h3 className="text-2xl font-serif-luxury">Experience Premium Student & Estate Luxury</h3>
+                <h3 className="text-2xl font-sans font-bold">Experience Premium Student & Estate Luxury</h3>
                 <p className="text-sm text-white/70 leading-relaxed">
                   Located right at the doorstep of top university campuses and estate districts. Featuring private infinity pools, study suites, and 24/7 concierge service.
                 </p>

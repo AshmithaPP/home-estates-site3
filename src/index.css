@@ -1,7 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
+
+@theme {
+  --font-sans: 'Montserrat';
+  --font-serif: 'Montserrat';
+  --font-montserrat: 'Montserrat';
+  --font-serif-luxury: 'Montserrat';
+}
 
 @layer base {
   :root {
+    --font-sans: 'Montserrat';
+
     /* ── PALETTE ───────────────────────────────────────────────────
        Background: Linear grey from 3rd G in image  #282828 → #404040
        Primary   : Warm amber-orange lamp glow       #ff8c00
@@ -30,26 +40,19 @@
   }
 
   * {
-    padding: 0;
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    font-family: 'Montserrat' !important;
   }
 
-  body {
-    font-family: 'Montserrat', sans-serif;
+  html, body {
+    font-family: 'Montserrat' !important;
     background-color: #0d0e11;
     color: var(--text-primary);
     overflow-x: hidden;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif !important;
-    font-weight: 400;
-  }
-
-  p, span, a, button, input, textarea, select,
-  .font-serif-luxury, .font-montserrat, .font-roboto, .font-sans {
-    font-family: 'Montserrat', sans-serif !important;
+  h1, h2, h3, h4, h5, h6, p, span, a, button, input, textarea, select, label {
+    font-family: 'Montserrat' !important;
   }
 }
 

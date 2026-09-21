@@ -141,7 +141,7 @@ export const ContactSection = ({ onOpenApply, onOpenTourModal }) => {
                       Curated Portfolio
                     </span>
                   </div>
-                  <h3 className="font-serif-luxury text-2xl sm:text-3xl lg:text-4xl font-normal text-[#f0ede8] tracking-tight drop-shadow-md">
+                  <h3 className="font-sans text-2xl sm:text-3xl lg:text-4xl font-normal text-[#f0ede8] tracking-tight drop-shadow-md">
                     The Hilltop Sanctuary · Phase II
                   </h3>
                 </div>

@@ -68,7 +68,6 @@ export const BeginJourneyCTA = ({ onOpenApply }) => {
           <span className="w-5 h-[2px] bg-[#ff8c00]" />
           <span
             className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.3em] text-[#ff8c00]"
-            style={{ fontFamily: 'Montserrat, sans-serif' }}
           >
             BEGIN YOUR JOURNEY
           </span>
@@ -84,7 +83,6 @@ export const BeginJourneyCTA = ({ onOpenApply }) => {
         >
           <h2
             className="text-2xl sm:text-4xl lg:text-5xl font-normal text-white tracking-tight leading-snug uppercase text-center font-sans"
-            style={{ fontFamily: 'Montserrat, sans-serif' }}
           >
             {/* Line 1: READY TO FIND YOUR NEXT */}
             <div className="flex flex-wrap justify-center gap-x-[0.28em] gap-y-1">
@@ -133,7 +131,6 @@ export const BeginJourneyCTA = ({ onOpenApply }) => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-xs sm:text-sm md:text-base text-white/70 font-medium max-w-2xl mx-auto leading-relaxed"
-          style={{ fontFamily: 'Montserrat, sans-serif' }}
         >
           Let's find a space that feels like yours. Schedule a consultation or view our comprehensive South Indian portfolio.
         </motion.p>
